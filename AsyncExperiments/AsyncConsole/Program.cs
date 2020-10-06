@@ -1,12 +1,15 @@
-﻿using System;
-
-namespace AsyncConsole
+﻿namespace AsyncConsole
 {
-    class Program
+    using System;
+
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Async void
+            Console.WriteLine("Calling async void");
+            var asyncVoid = new AsyncVoid();
+            asyncVoid.CallAsyncVoid();
         }
     }
 }
