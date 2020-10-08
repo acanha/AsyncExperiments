@@ -28,6 +28,13 @@ namespace AsyncWeb.Controllers
             return View();
         }
 
+        public IActionResult Void()
+        {
+            var asyncVoid = new AsyncVoid();
+            asyncVoid.CallAsyncVoid();
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
