@@ -15,5 +15,10 @@
             var asyncVoid = new AsyncVoid();
             asyncVoid.CallAsyncVoid();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            number.Text = $"Number:  {Result.GetNumberAsync().Result}";
+        }
     }
 }
