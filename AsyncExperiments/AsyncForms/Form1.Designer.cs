@@ -32,6 +32,8 @@ namespace AsyncForms
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.number = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.numberConfigure = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -63,11 +65,32 @@ namespace AsyncForms
             this.number.TabIndex = 2;
             this.number.Text = "Number: ";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(41, 130);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(124, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = ".Result Configure";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // numberConfigure
+            // 
+            this.numberConfigure.AutoSize = true;
+            this.numberConfigure.Location = new System.Drawing.Point(183, 134);
+            this.numberConfigure.Name = "numberConfigure";
+            this.numberConfigure.Size = new System.Drawing.Size(54, 15);
+            this.numberConfigure.TabIndex = 4;
+            this.numberConfigure.Text = "Number:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numberConfigure);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.number);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -83,6 +106,8 @@ namespace AsyncForms
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label number;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label numberConfigure;
     }
 }
 

@@ -20,5 +20,10 @@
         {
             number.Text = $"Number:  {Result.GetNumberAsync().Result}";
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            numberConfigure.Text = $"Number:  {Result.GetNumberWithConfigureAwaitAsync().Result}";
+        }
     }
 }

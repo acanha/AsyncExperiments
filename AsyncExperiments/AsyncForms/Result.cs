@@ -9,5 +9,11 @@
             await Task.Delay(5);
             return 5;  
         }
+
+        public static async Task<int> GetNumberWithConfigureAwaitAsync()
+        {
+            await Task.Delay(5).ConfigureAwait(false);
+            return 5;
+        }
     }
 }
