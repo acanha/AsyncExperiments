@@ -34,6 +34,10 @@ namespace AsyncForms
             this.number = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.numberConfigure = new System.Windows.Forms.Label();
+            this.resultAwaiter = new System.Windows.Forms.Button();
+            this.numberResultAwaiter = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.numberTaskRun = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -84,11 +88,53 @@ namespace AsyncForms
             this.numberConfigure.TabIndex = 4;
             this.numberConfigure.Text = "Number:";
             // 
+            // resultAwaiter
+            // 
+            this.resultAwaiter.Location = new System.Drawing.Point(41, 179);
+            this.resultAwaiter.Name = "resultAwaiter";
+            this.resultAwaiter.Size = new System.Drawing.Size(75, 23);
+            this.resultAwaiter.TabIndex = 5;
+            this.resultAwaiter.Text = "GetResult";
+            this.resultAwaiter.UseVisualStyleBackColor = true;
+            this.resultAwaiter.Click += new System.EventHandler(this.resultAwaiter_Click);
+            // 
+            // numberResultAwaiter
+            // 
+            this.numberResultAwaiter.AutoSize = true;
+            this.numberResultAwaiter.Location = new System.Drawing.Point(158, 186);
+            this.numberResultAwaiter.Name = "numberResultAwaiter";
+            this.numberResultAwaiter.Size = new System.Drawing.Size(54, 15);
+            this.numberResultAwaiter.TabIndex = 6;
+            this.numberResultAwaiter.Text = "Number:";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(41, 236);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "TaskRun";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // numberTaskRun
+            // 
+            this.numberTaskRun.AutoSize = true;
+            this.numberTaskRun.Location = new System.Drawing.Point(158, 243);
+            this.numberTaskRun.Name = "numberTaskRun";
+            this.numberTaskRun.Size = new System.Drawing.Size(54, 15);
+            this.numberTaskRun.TabIndex = 8;
+            this.numberTaskRun.Text = "Number:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numberTaskRun);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.numberResultAwaiter);
+            this.Controls.Add(this.resultAwaiter);
             this.Controls.Add(this.numberConfigure);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.number);
@@ -108,6 +154,10 @@ namespace AsyncForms
         private System.Windows.Forms.Label number;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label numberConfigure;
+        private System.Windows.Forms.Button resultAwaiter;
+        private System.Windows.Forms.Label numberResultAwaiter;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label numberTaskRun;
     }
 }
 
