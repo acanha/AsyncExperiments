@@ -38,6 +38,10 @@ namespace AsyncForms
             this.numberResultAwaiter = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.numberTaskRun = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.withoutElidingText = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.elidingText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -126,11 +130,53 @@ namespace AsyncForms
             this.numberTaskRun.TabIndex = 8;
             this.numberTaskRun.Text = "Number:";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(41, 301);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(102, 23);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "Without Eliding";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // withoutElidingText
+            // 
+            this.withoutElidingText.AutoSize = true;
+            this.withoutElidingText.Location = new System.Drawing.Point(158, 309);
+            this.withoutElidingText.Name = "withoutElidingText";
+            this.withoutElidingText.Size = new System.Drawing.Size(31, 15);
+            this.withoutElidingText.TabIndex = 10;
+            this.withoutElidingText.Text = "Text:";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(41, 347);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(102, 23);
+            this.button6.TabIndex = 11;
+            this.button6.Text = "Eliding";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // elidingText
+            // 
+            this.elidingText.AutoSize = true;
+            this.elidingText.Location = new System.Drawing.Point(158, 355);
+            this.elidingText.Name = "elidingText";
+            this.elidingText.Size = new System.Drawing.Size(31, 15);
+            this.elidingText.TabIndex = 12;
+            this.elidingText.Text = "Text:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.elidingText);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.withoutElidingText);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.numberTaskRun);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.numberResultAwaiter);
@@ -158,6 +204,10 @@ namespace AsyncForms
         private System.Windows.Forms.Label numberResultAwaiter;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label numberTaskRun;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label withoutElidingText;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label elidingText;
     }
 }
 

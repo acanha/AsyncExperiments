@@ -38,5 +38,15 @@
             Task.Run(() => text = $"Number:  {Result.GetNumberAsync().Result}");
             numberTaskRun.Text = text;
         }
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            withoutElidingText.Text = $"Text:  {await Result.GetWithKeywordsAsync()}";
+        }
+
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            elidingText.Text = $"Text:  {await Result.GetElidingKeywordsAsync()}";
+        }
     }
 }

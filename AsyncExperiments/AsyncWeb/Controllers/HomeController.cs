@@ -35,6 +35,14 @@ namespace AsyncWeb.Controllers
             return View();
         }
 
+        public IActionResult Result()
+        {
+            var result = new Result();
+            var number = result.GetNumberAsync().Result;
+            return View(number);
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
