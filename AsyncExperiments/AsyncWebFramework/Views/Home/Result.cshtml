@@ -1,7 +1,42 @@
-﻿@model int
-@{
-    ViewBag.Title = "Result";
+﻿@{
+    ViewBag.Title = ".Result";
 }
 
-<h2>@Model</h2>
+<div class="jumbotron">
+    <h1>Async Experiments - .Result</h1>
+    <p class="lead">Example of .Result deadlock.</p>
+</div>
+
+
+<h1>.Result</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Without eliding</h2>
+        <p>Call an async method without eliding.</p>
+        <p><a class="btn btn-default" href="@Url.Action("WithResult", "Home")">Call &raquo;</a></p>
+    </div>
+     <div class="col-md-6">
+        <h2>Without eliding</h2>
+        <p>Call an async method without eliding.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Result", "Home")">Call &raquo;</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Parallelism</h2>
+        <p>Call an async method without eliding.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Parallelism", "Home")">Call &raquo;</a></p>
+    </div>
+     <div class="col-md-6">
+        <h2>Parallelism</h2>
+        <p>Call an async method without eliding.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Deadlock", "Home")">Call &raquo;</a></p>
+    </div>
+</div>
+
+<div>
+    <p>@DateTime.UtcNow.ToString()</p>
+</div>
 

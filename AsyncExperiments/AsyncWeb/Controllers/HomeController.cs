@@ -23,11 +23,6 @@ namespace AsyncWeb.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public IActionResult Void()
         {
             var asyncVoid = new AsyncVoid();
@@ -39,6 +34,20 @@ namespace AsyncWeb.Controllers
         {
             var result = new Result();
             var number = result.GetNumberAsync().Result;
+            return View(number);
+        }
+
+        public async Task<ActionResult> Parallelism()
+        {
+            var result = new Result();
+            var number = await result.GetBothAsync("https://jsonplaceholder.typicode.com/todos/1", "https://jsonplaceholder.typicode.com/todos/2");
+            return View(number);
+        }
+
+        public  ActionResult Deadlock()
+        {
+            var result = new Result();
+            var number = result.DownloadStringV5("https://jsonplaceholder.typicode.com/todos/1");
             return View(number);
         }
 

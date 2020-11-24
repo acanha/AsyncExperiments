@@ -163,12 +163,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Deadlock.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Shared\WithoutEliding.cshtml" />
     <Content Include="Views\Home\DebugWithoutEliding.cshtml" />
     <Content Include="Views\Home\ElidingStackTrace.cshtml" />
+    <Content Include="Views\Home\Parallelism.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,23 +2,22 @@
 {
     using System;
     using System.Net.Http;
-    using System.Reflection.Metadata;
     using System.Threading.Tasks;
 
     public class Result
     {
         private const string URL = "https://baconipsum.com/api/?type=all-meat&sentences=1&start-with-lorem=1";
 
-        public static async Task<int> GetNumberAsync()
+        public static async Task<decimal> GetNumberAsync(decimal clicks)
         {
             await Task.Delay(5);
-            return 5;
+            return clicks + 1;
         }
 
-        public static async Task<int> GetNumberWithConfigureAwaitAsync()
+        public static async Task<decimal> GetNumberWithConfigureAwaitAsync(decimal clicks)
         {
             await Task.Delay(5).ConfigureAwait(false);
-            return 5;
+            return clicks + 1;
         }
 
         public static async Task<string> GetWithKeywordsAsync()

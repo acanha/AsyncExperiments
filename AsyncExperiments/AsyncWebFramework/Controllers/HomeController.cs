@@ -8,6 +8,8 @@ namespace AsyncWebFramework.Controllers
 {
     public class HomeController : Controller
     {
+        private const string URL = "https://baconipsum.com/api/?type=all-meat&sentences=1&start-with-lorem=1";
+
         public ActionResult Index()
         {
             return View();
@@ -29,8 +31,27 @@ namespace AsyncWebFramework.Controllers
 
         public ActionResult Result()
         {
+            return View();
+        }
+
+        public ActionResult WithResult()
+        {
             var result = new Result();
             var number = result.GetNumberAsync().Result;
+            return View(number);
+        }
+
+        public async Task<ActionResult> Parallelism()
+        {
+            var result = new Result();
+            var number = await result.GetBothAsync("https://jsonplaceholder.typicode.com/todos/1", "https://jsonplaceholder.typicode.com/todos/2");
+            return View(number);
+        }
+
+        public  ActionResult Deadlock()
+        {
+            var result = new Result();
+            var number =  result.DownloadStringV5("https://jsonplaceholder.typicode.com/todos/1");
             return View(number);
         }
 

@@ -9,44 +9,52 @@
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var asyncVoid = new AsyncVoid();
-            asyncVoid.CallAsyncVoid();
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            number.Text = $"Number:  {Result.GetNumberAsync().Result}";
+            numericUpDown.Value = Result.GetNumberAsync(numericUpDown.Value).Result;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            numberConfigure.Text = $"Number:  {Result.GetNumberWithConfigureAwaitAsync().Result}";
+            numericUpDown.Value = Result.GetNumberWithConfigureAwaitAsync(numericUpDown.Value).Result;
         }
 
-        private void resultAwaiter_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            numberResultAwaiter.Text = $"Number:  {Result.GetNumberAsync().GetAwaiter().GetResult()}";
+            time.Text = $"Time: {DateTime.UtcNow.ToString("HH:mm:ss")}";
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string text = string.Empty;
-            Task.Run(() => text = $"Number:  {Result.GetNumberAsync().Result}");
-            numberTaskRun.Text = text;
-        }
+        #region Tests
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    var asyncVoid = new AsyncVoid();
+        //    asyncVoid.CallAsyncVoid();
+        //}
+        //private void resultAwaiter_Click(object sender, EventArgs e)
+        //{
+        //    numberResultAwaiter.Text = $"Number:  {Result.GetNumberAsync().GetAwaiter().GetResult()}";
+        //}
 
-        private async void button5_Click(object sender, EventArgs e)
-        {
-            withoutElidingText.Text = $"Text:  {await Result.GetWithKeywordsAsync()}";
-        }
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    string text = string.Empty;
+        //    Task.Run(() => text = $"Number:  {Result.GetNumberAsync().Result}");
+        //    numberTaskRun.Text = text;
+        //}
 
-        private async void button6_Click(object sender, EventArgs e)
-        {
-            elidingText.Text = $"Text:  {await Result.GetElidingKeywordsAsync()}";
-        }
+        //private async void button5_Click(object sender, EventArgs e)
+        //{
+        //    withoutElidingText.Text = $"Text:  {await Result.GetWithKeywordsAsync()}";
+        //}
+
+        //private async void button6_Click(object sender, EventArgs e)
+        //{
+        //    elidingText.Text = $"Text:  {await Result.GetElidingKeywordsAsync()}";
+        //}
+        #endregion
     }
 }
