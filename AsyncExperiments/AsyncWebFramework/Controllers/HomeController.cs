@@ -15,10 +15,8 @@ namespace AsyncWebFramework.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult AsyncVoid()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
@@ -34,11 +32,27 @@ namespace AsyncWebFramework.Controllers
             return View();
         }
 
+        public ActionResult CallAsyncVoid()
+        {
+            var asyncVoid = new AsyncVoid();
+            asyncVoid.CallAsyncVoid();
+
+            return View();
+        }
+
+        public ActionResult CallAsyncVoidWithException()
+        {
+            var asyncVoid = new AsyncVoid();
+            asyncVoid.CallAsyncVoidWithException();
+
+            return View();
+        }
+
         public ActionResult WithResult()
         {
             var result = new Result();
-            var number = result.GetNumberAsync().Result;
-            return View(number);
+            var number = result.GetNumberAsync();
+            return View(number.Result);
         }
 
         public async Task<ActionResult> Parallelism()

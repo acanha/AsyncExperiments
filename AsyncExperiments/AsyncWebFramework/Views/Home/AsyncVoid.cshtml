@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "async void";
+}
+
+<div class="jumbotron">
+    <h1>Async Experiments - async void</h1>
+    <p class="lead">Example of async void.</p>
+</div>
+
+
+<h1>Async Void</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Async Void with exception</h2>
+        <p>Call an async void method that throws an exception.</p>
+        <p><a class="btn btn-default" href="@Url.Action("CallAsyncVoidWithException", "Home")">Call &raquo;</a></p>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Async Void</h2>
+        <p>Call an async void method.</p>
+        <p><a class="btn btn-default" href="@Url.Action("CallAsyncVoid", "Home")">Call &raquo;</a></p>
+    </div>
+</div>
+

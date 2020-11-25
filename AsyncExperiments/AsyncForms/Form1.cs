@@ -56,5 +56,16 @@
         //    elidingText.Text = $"Text:  {await Result.GetElidingKeywordsAsync()}";
         //}
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            var number = await Result.GetNumberAsync(numericUpDown.Value).ConfigureAwait(false);
+            numericUpDown.Value = number;
+        }
     }
 }

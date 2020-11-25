@@ -65,6 +65,7 @@ namespace AsyncStandardLibrary
                 {
                     firstState = -2;
                     builder.SetException(exception);
+                    //https://bit.ly/3nZqkJR
                     return;
                 }
                 firstState = -2;
