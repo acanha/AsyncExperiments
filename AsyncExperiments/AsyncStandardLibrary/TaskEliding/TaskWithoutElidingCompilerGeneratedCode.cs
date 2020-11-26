@@ -13,7 +13,7 @@ namespace AsyncStandardLibrary
         [CompilerGenerated]
         private struct ElidingStateMachine : IAsyncStateMachine
         {
-            public int firstState;
+            public int state;
 
             public AsyncTaskMethodBuilder<string> builder;
 
@@ -23,7 +23,7 @@ namespace AsyncStandardLibrary
 
             private void MoveNext()
             {
-                int num = firstState;
+                int num = state;
                 string result;
                 try
                 {
@@ -39,7 +39,7 @@ namespace AsyncStandardLibrary
                             awaiter = httpClient.GetStringAsync("https://baconipsum.com/api/?type=all-meat&sentences=1&start-with-lorem=1").GetAwaiter();
                             if (!awaiter.IsCompleted)
                             {
-                                num = (firstState = 0);
+                                num = (state = 0);
                                 taskAwaiter = awaiter;
                                 builder.AwaitUnsafeOnCompleted(ref awaiter, ref this);
                                 return;
@@ -49,7 +49,7 @@ namespace AsyncStandardLibrary
                         {
                             awaiter = taskAwaiter;
                             taskAwaiter = default(TaskAwaiter<string>);
-                            num = (firstState = -1);
+                            num = (state = -1);
                         }
                         result = awaiter.GetResult();
                     }
@@ -63,12 +63,12 @@ namespace AsyncStandardLibrary
                 }
                 catch (Exception exception)
                 {
-                    firstState = -2;
+                    state = -2;
                     builder.SetException(exception);
                     //https://bit.ly/3nZqkJR
                     return;
                 }
-                firstState = -2;
+                state = -2;
                 builder.SetResult(result);
             }
 
@@ -96,7 +96,7 @@ namespace AsyncStandardLibrary
         {
             ElidingStateMachine stateMachine = default(ElidingStateMachine);
             stateMachine.builder = AsyncTaskMethodBuilder<string>.Create();
-            stateMachine.firstState = -1;
+            stateMachine.state = -1;
             AsyncTaskMethodBuilder<string> builder = stateMachine.builder;
             builder.Start(ref stateMachine);
             return stateMachine.builder.Task;

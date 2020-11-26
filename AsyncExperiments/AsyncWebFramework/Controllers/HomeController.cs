@@ -20,10 +20,8 @@ namespace AsyncWebFramework.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Debug()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
@@ -105,6 +103,14 @@ namespace AsyncWebFramework.Controllers
             var text = await compilerCode.GetWithKeywordsAsync();
 
             return View(new MyViewModel { Text = text });
+        }
+
+        public async Task<ActionResult> DebugStateMachine()
+        {
+            var compilerCode = new CompilerGeneratedStateMachine();
+            await compilerCode.PrintAndWait(TimeSpan.FromSeconds(1));
+
+            return View("DebugWithoutEliding",new MyViewModel { Text = "Success" });
         }
 
         public async Task<ActionResult> WithElidingException()

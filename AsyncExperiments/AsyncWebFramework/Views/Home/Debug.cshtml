@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Debug";
+}
+
+<div class="jumbotron">
+    <h1>Async Experiments - Debug async state machine</h1>
+    <p class="lead">Examples of the pitfalls of async/await eliding.</p>
+</div>
+
+
+<h1>Debug</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Debug state machine</h2>
+        <p>Call an async method.</p>
+        <p><a class="btn btn-default" href="@Url.Action("DebugStateMachine", "Home")">Call &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Debug compiler without eliding</h2>
+        <p>Call an async method that is similar to compiler generated code for the async/awat state machine.</p>
+        <p><a class="btn btn-default" href="@Url.Action("DebugWithoutEliding", "Home")">Call &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Debug compiler eliding</h2>
+        <p>Call an async method that is similar to compiler generated code without the async/await keywords.</p>
+        <p><a class="btn btn-default" href="@Url.Action("DebugEliding", "Home")">Call &raquo;</a></p>
+    </div>
+</div>

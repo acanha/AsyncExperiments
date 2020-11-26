@@ -171,6 +171,7 @@
     <Content Include="Views\Home\DebugWithoutEliding.cshtml" />
     <Content Include="Views\Home\ElidingStackTrace.cshtml" />
     <Content Include="Views\Home\Parallelism.cshtml" />
+    <Content Include="Views\Home\Debug.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
