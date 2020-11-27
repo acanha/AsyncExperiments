@@ -13,13 +13,24 @@
             timer1.Interval = 1000;
         }
 
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            // BAD CODE: the ConfigureAwait(false) will make the continuation of this method to run 
+            // on a thread from the thread pool and not the UI thread, which will cause an error because the 
+            // numericUpDown needs to run on the UI thread. 
+            var number = await Result.GetNumberAsync(numericUpDown.Value).ConfigureAwait(false);
+            numericUpDown.Value = number;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+            // BAD CODE: This will cause a deadlock on the UI thread which will freeze the app.
             numericUpDown.Value = Result.GetNumberAsync(numericUpDown.Value).Result;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // BAD CODE: This is still bad code but will work since the method has a ConfigureAwait(false)
             numericUpDown.Value = Result.GetNumberWithConfigureAwaitAsync(numericUpDown.Value).Result;
         }
 
@@ -60,12 +71,6 @@
         private void Form1_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            var number = await Result.GetNumberAsync(numericUpDown.Value).ConfigureAwait(false);
-            numericUpDown.Value = number;
         }
     }
 }

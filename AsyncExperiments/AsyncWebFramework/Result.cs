@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AsyncWebFramework.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,14 +49,5 @@ namespace AsyncWebFramework
                 return download;
             }).Result;
         }
-    }
-
-
-    public class Post
-    {
-        public int UserId { get; set; }
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public bool Completed { get; set; }
     }
 }

@@ -113,6 +113,14 @@ namespace AsyncWebFramework.Controllers
             return View("DebugWithoutEliding",new MyViewModel { Text = "Success" });
         }
 
+        public async Task<ActionResult> DebugStateMachineFast()
+        {
+            var compilerCode = new CompilerGeneratedStateMachine();
+            await compilerCode.PrintAndWaitFast();
+
+            return View("DebugWithoutEliding", new MyViewModel { Text = "Success" });
+        }
+
         public async Task<ActionResult> WithElidingException()
         {
             var task =  Eliding.GetElidingKeywordsExceptionAsync();
