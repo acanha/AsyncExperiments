@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "async/await eliding";
+}
+
+<div class="jumbotron">
+    <h1>Async Experiments - Eliding</h1>
+    <p class="lead">Examples of the pitfalls of async/await eliding.</p>
+</div>
+
+
+<h1>Eliding</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Without eliding</h2>
+        <p>Call an async method without eliding.</p>
+        <p><a class="btn btn-default" href="@Url.Action("WithoutEliding", "Home")">Call &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Eliding</h2>
+        <p>Call an async method eliding</p>
+        <p><a class="btn btn-default" href="@Url.Action("WithEliding", "Home")">Call &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Eliding with Try Catch</h2>
+        <p>Call an async method eliding and with try catch block</p>
+        <p><a class="btn btn-default" href="@Url.Action("WithElidingTry", "Home")">Call &raquo;</a></p>
+    </div>
+</div>
+
+<hr />
+<h1>Exceptions</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Exception without eliding</h2>
+        <p>Call an async method without eliding, where an exception is thrown.</p>
+        <p><a class="btn btn-default" href="@Url.Action("WithoutElidingException", "Home")">Call &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>Exception eliding</h2>
+        <p>Call an async method eliding, where an exception is thrown</p>
+        <p><a class="btn btn-default" href="@Url.Action("WithElidingException", "Home")">Call &raquo;</a></p>
+    </div>
+</div>
+
+<hr />
+<h1>Stack Trace</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Stack Trace without eliding</h2>
+        <p>Call an async method eliding and with try catch block</p>
+        <p><a class="btn btn-default" href="@Url.Action("WithoutElidingStackTrace", "Home")">Call &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>Stack Trace eliding</h2>
+        <p>Call an async method eliding and with try catch block</p>
+        <p><a class="btn btn-default" href="@Url.Action("ElidingStackTrace", "Home")">Call &raquo;</a></p>
+    </div>  
+</div>
+
+<hr />
+<h1>AsyncLocal</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>AsyncLocal without eliding</h2>
+        <p>Use AsyncLocal without eliding.</p>
+        <p><a class="btn btn-default" href="@Url.Action("AsyncLocalWithouEliding", "Home")">Call &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>AsyncLocal eliding</h2>
+        <p>Use AsyncLocal eliding.</p>
+        <p><a class="btn btn-default" href="@Url.Action("AsyncLocalEliding", "Home")">Call &raquo;</a></p>
+    </div>
+</div>

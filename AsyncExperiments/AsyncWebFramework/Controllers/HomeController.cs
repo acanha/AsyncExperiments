@@ -20,7 +20,7 @@ namespace AsyncWebFramework.Controllers
             return View();
         }
 
-        public ActionResult Debug()
+        public ActionResult ElidingIndex()
         {
             return View();
         }
@@ -30,6 +30,7 @@ namespace AsyncWebFramework.Controllers
             return View();
         }
 
+        #region async void
         public ActionResult CallAsyncVoid()
         {
             var asyncVoid = new AsyncVoid();
@@ -45,7 +46,9 @@ namespace AsyncWebFramework.Controllers
 
             return View();
         }
+        #endregion
 
+        #region .Result
         public ActionResult WithResult()
         {
             var result = new Result();
@@ -66,6 +69,7 @@ namespace AsyncWebFramework.Controllers
             var number =  result.DownloadStringV5("https://jsonplaceholder.typicode.com/todos/1");
             return View(number);
         }
+        #endregion
 
         #region Eliding
         public async Task<ActionResult> WithoutEliding()
