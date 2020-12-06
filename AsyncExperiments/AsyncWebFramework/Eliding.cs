@@ -91,19 +91,27 @@ namespace AsyncWebFramework
         {
             Debug.Assert(args.CurrentValue != args.PreviousValue);
         }
-        public static async Task AsyncLocalWithoutEliding()
-        {
-            asyncLocalContext.Value = 1;
-            Debug.Assert(asyncLocalContext.Value == 1);
-            await Async();
-            Debug.Assert(asyncLocalContext.Value == 1);
-        }
 
-        public static async Task AsyncLocalEliding()
+        /*
+            The context value is set in the “child” Async method, 
+            but when Async completes and the control flow moves back to AsyncLocalEliding, 
+            the code executes in the “parent” context. 
+            So the “parent” value flows to the “child”, but the “child” value does not flow to the “parent”.
+         */
+        public static async Task AsyncLocalEliding(bool isEliding)
         {
             asyncLocalContext.Value = 1;
             Debug.Assert(asyncLocalContext.Value == 1);
-            await AsyncEliding();
+
+            if (isEliding)
+            {
+                await AsyncEliding()
+            } 
+            else 
+            {
+                await Async();
+            }
+
             Debug.Assert(asyncLocalContext.Value == 1);
         }
 
@@ -119,7 +127,7 @@ namespace AsyncWebFramework
         private static Task AsyncEliding()
         {
             Debug.Assert(asyncLocalContext.Value == 1);
-            asyncLocalContext.Value = 2;
+            Sync();
             Debug.Assert(asyncLocalContext.Value == 2);
             return Task.CompletedTask;
         }

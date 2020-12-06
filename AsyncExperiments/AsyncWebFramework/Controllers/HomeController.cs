@@ -169,15 +169,13 @@ namespace AsyncWebFramework.Controllers
 
         public async Task<ActionResult> AsyncLocalWithouEliding()
         {
-            await Eliding.AsyncLocalWithoutEliding();
-
+            await Eliding.AsyncLocalEliding(false);
             return View(new MyViewModel { Text = "" });
         }
 
         public async Task<ActionResult> AsyncLocalEliding()
         {
-            await Eliding.AsyncLocalEliding();
-
+            await Eliding.AsyncLocalEliding(true);
             return View(new MyViewModel { Text = "" });
         }
         #endregion
