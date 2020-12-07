@@ -105,7 +105,7 @@ namespace AsyncWebFramework
 
             if (isEliding)
             {
-                await AsyncEliding()
+                await AsyncEliding();
             } 
             else 
             {

@@ -109,8 +109,8 @@ namespace AsyncStandardLibrary
             stateMachine.delay = delay;
             stateMachine.builder = AsyncTaskMethodBuilder.Create();
             stateMachine.state = -1;
-            AsyncTaskMethodBuilder builder = stateMachine.builder;
-            builder.Start(ref stateMachine);
+
+            stateMachine.builder.Start(ref stateMachine);
             return stateMachine.builder.Task;
         }
 
